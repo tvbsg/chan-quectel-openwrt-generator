@@ -18,6 +18,16 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
+      - name: Switch to Azure Ubuntu mirror
+  run: |
+    sudo tee /etc/apt/sources.list <<EOF
+    deb http://azure.archive.ubuntu.com/ubuntu jammy main universe restricted multiverse
+    deb http://azure.archive.ubuntu.com/ubuntu jammy-updates main universe restricted multiverse
+    deb http://azure.archive.ubuntu.com/ubuntu jammy-security main universe restricted multiverse
+    EOF
+    sudo apt-get clean
+    sudo apt-get update --fix-missing
+
       - name: Check out repository code
         uses: actions/checkout@v4
       - uses: KyoriPowered/action-regex-match@v4
