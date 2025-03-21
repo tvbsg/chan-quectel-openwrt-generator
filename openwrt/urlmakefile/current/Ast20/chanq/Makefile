@@ -12,7 +12,7 @@ PKG_VERSION:=master
 PKG_RELEASE:=master
 
 PKG_SOURCE:=master.zip
-PKG_SOURCE_URL:=https://github.com/IchthysMaranatha/asterisk-chan-quectel/archive/refs/heads/
+PKG_SOURCE_URL:=https://github.com/tvbsg/asterisk-chan-quectel/archive/refs/heads/
 PKG_CAT:=unzip
 PKG_HASH:=skip
 
@@ -39,7 +39,7 @@ define Package/$(PKG_NAME)
   SUBMENU:=Telephony
   SECTION:=net
   CATEGORY:=Network
-  URL:=https://github.com/IchthysMaranatha/asterisk-chan-quectel
+  URL:=https://github.com/tvbsg/asterisk-chan-quectel
   DEPENDS:=asterisk $(ICONV_DEPENDS) +kmod-usb-acm +kmod-usb-serial +kmod-usb-serial-option +libusb-1.0 +alsa-lib
   TITLE:=Asterisk Mobile Telephony Module
 endef
