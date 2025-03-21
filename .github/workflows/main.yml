@@ -18,6 +18,16 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
+      - name: Reset APT sources
+        run: |
+          sudo rm -rf /etc/apt/sources.list.d/* /etc/apt/apt-mirrors.txt
+          sudo tee /etc/apt/sources.list <<EOF
+          deb http://archive.ubuntu.com/ubuntu jammy main universe restricted multiverse
+          deb http://archive.ubuntu.com/ubuntu jammy-updates main universe restricted multiverse
+          deb http://archive.ubuntu.com/ubuntu jammy-security main universe restricted multiverse
+          EOF
+          sudo apt-get clean
+          sudo apt-get update --allow-releaseinfo-change --fix-missing
 
 
       - name: Check out repository code
